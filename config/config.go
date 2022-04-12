@@ -33,11 +33,11 @@ func Load() (Config, error) {
 	}
 
 	ChatUsername = viper.GetString("tg.chatusername")
+	TelegramBotToken = os.Getenv("TG_API_TOKEN")
+	cfg.ServiceHost = cast.ToString(getOrReturnDefault("CATALOG_SERVICE_HOST", "127.0.0.1"))
 	cfg.ServicePORT = viper.GetString("ports.servicePort")
 	cfg.ClientPORT = viper.GetString("ports.clientPort")
-	TelegramBotToken = os.Getenv("TG_API_TOKEN")
 	cfg.LogLevel = cast.ToString(getOrReturnDefault("LOG_LEVEL", "debug"))
-	cfg.ServiceHost = cast.ToString(getOrReturnDefault("CATALOG_SERVICE_HOST", "127.0.0.1"))
 
 	return cfg, nil
 }

@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"context"
-	"log"
 
 	pb "github.com/perfectogo/telegram-bot/genproto"
 	"github.com/perfectogo/telegram-bot/pkg/logger"
@@ -29,5 +28,5 @@ func (h *handler) SendMessageHandler(ctx *gin.Context) {
 		h.log.Error("failed sending message", logger.Error(err))
 		return
 	}
-	log.Println(res, "reeessssuuuulllls")
+	ctx.JSON(201, res)
 }

@@ -3,15 +3,11 @@ package bot
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/perfectogo/telegram-bot/config"
 )
-
-var chatUusername = config.ChatUsername
-var telegramBotToken = config.TelegramBotToken
 
 type BotMessage struct {
 	ChatUsername string `json:"chat_id"`
@@ -19,14 +15,12 @@ type BotMessage struct {
 }
 
 func MessageSenderBot(message string) (err error) {
-	fmt.Println(chatUusername)
-	fmt.Println(telegramBotToken)
 	var (
-		addres string = "https://api.telegram.org/bot" + telegramBotToken
+		addres string = "https://api.telegram.org/bot" + config.TelegramBotToken
 		text   BotMessage
 	)
 
-	text.ChatUsername = chatUusername
+	text.ChatUsername = config.ChatUsername
 	text.Text = message
 
 	buf, err := json.Marshal(text)

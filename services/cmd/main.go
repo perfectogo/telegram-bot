@@ -29,7 +29,7 @@ func main() {
 		log.Fatal("Error while listening: %v", logger.Error(err))
 	}
 
-	// goroutine for ...
+	// goroutine for send message by priority
 	go service.Sender()
 
 	tgService := service.NewTgService(log)
