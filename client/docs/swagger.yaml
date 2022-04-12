@@ -1,0 +1,41 @@
+definitions:
+  handlers.Message:
+    properties:
+      priority:
+        type: string
+      text:
+        type: string
+    type: object
+  handlers.Res:
+    properties:
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /tg/send/:
+    post:
+      consumes:
+      - application/json
+      description: This API for sending message to tg group or channels
+      parameters:
+      - description: messageSentRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.Message'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.Res'
+        "400":
+          description: ""
+      summary: SendMessage
+      tags:
+      - sendMeassage
+swagger: "2.0"

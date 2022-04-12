@@ -9,6 +9,26 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// types for swagg
+type Message struct {
+	Text     string `json:"text"`
+	Priority string `json:"priority"`
+}
+
+type Res struct {
+	Message string `json:"message"`
+}
+
+// SendMessage ...
+// @Summary SendMessage
+// @Description This API for sending message to tg group or channels
+// @Tags sendMeassage
+// @Accept  json
+// @Produce  json
+// @Param Message request body Message true "messageSentRequest"
+// @Success 201 {object} Res
+// @Failure 400
+// @Router /tg/send/ [post]
 func (h *handler) SendMessageHandler(ctx *gin.Context) {
 
 	var newMessage pb.MessageRequest

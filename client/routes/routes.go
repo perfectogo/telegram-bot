@@ -2,12 +2,13 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	_ "github.com/perfectogo/telegram-bot/client/docs" // swag
 	"github.com/perfectogo/telegram-bot/client/handlers"
 	"github.com/perfectogo/telegram-bot/client/services"
 	"github.com/perfectogo/telegram-bot/config"
 	"github.com/perfectogo/telegram-bot/pkg/logger"
+	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 type Option struct {
