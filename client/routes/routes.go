@@ -5,7 +5,7 @@ import (
 	"github.com/perfectogo/telegram-bot/client/handlers"
 	"github.com/perfectogo/telegram-bot/client/services"
 	"github.com/perfectogo/telegram-bot/config"
-	"github.com/perfectogo/telegram-bot/package/logger"
+	"github.com/perfectogo/telegram-bot/pkg/logger"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )

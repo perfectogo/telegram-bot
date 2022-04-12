@@ -2,33 +2,32 @@ package handlers
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	pb "github.com/perfectogo/telegram-bot/genproto"
+	"github.com/perfectogo/telegram-bot/pkg/logger"
 
 	"github.com/gin-gonic/gin"
 )
-
-var c pb.MessageSenderClient
 
 func (h *handler) SendMessageHandler(ctx *gin.Context) {
 
 	var newMessage pb.MessageRequest
 
 	if err := ctx.BindJSON(&newMessage); err != nil {
-
-		log.Printf("Failed to accept message from cleint")
+		ctx.AbortWithStatusJSON(500, "failed to bind json")
+		h.log.Error("failed to bind json", logger.Error(err))
+		return
 	}
-	fmt.Println(newMessage)
-	res, err := c.Sender(context.Background(), &pb.MessageRequest{
+	res, err := h.serviceManager.TgService().Sender(context.Background(), &pb.MessageRequest{
 		Text:     newMessage.Text,
 		Priority: newMessage.Priority,
 	})
 
 	if err != nil {
-
-		log.Fatalf("Failed to call Sender RPC: %v", err)
+		ctx.AbortWithStatusJSON(500, "fieald sending message")
+		h.log.Error("failed sending message", logger.Error(err))
+		return
 	}
-	log.Println(res)
+	log.Println(res, "reeessssuuuulllls")
 }

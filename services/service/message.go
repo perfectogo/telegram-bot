@@ -45,17 +45,20 @@ func Sender() {
 
 	for {
 		if len(HighPriorityMessages) > 0 {
+			fmt.Println("<<<<<<<<<<<>>>>>>>>>>>>>>")
 			err := bot.MessageSenderBot(HighPriorityMessages[0].Text)
 			if err != nil {
 				log.Fatalf("Problem with sending message to bot: %v", err)
 			}
 			HighPriorityMessages = Remove(HighPriorityMessages, 0)
+
 		} else if len(MediumPriorityMessages) > 0 {
 			err := bot.MessageSenderBot(MediumPriorityMessages[0].Text)
 			if err != nil {
 				log.Fatalf("Problem with sending message to bot: %v", err)
 			}
 			MediumPriorityMessages = Remove(MediumPriorityMessages, 0)
+
 		} else if len(LowPriorityMessages) > 0 {
 			err := bot.MessageSenderBot(LowPriorityMessages[0].Text)
 			if err != nil {

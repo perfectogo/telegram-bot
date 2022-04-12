@@ -6,7 +6,7 @@ import (
 
 	"github.com/perfectogo/telegram-bot/config"
 	pb "github.com/perfectogo/telegram-bot/genproto"
-	"github.com/perfectogo/telegram-bot/package/logger"
+	"github.com/perfectogo/telegram-bot/pkg/logger"
 	"github.com/perfectogo/telegram-bot/services/service"
 	"google.golang.org/grpc"
 )

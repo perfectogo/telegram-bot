@@ -3,6 +3,7 @@ package bot
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -18,7 +19,8 @@ type BotMessage struct {
 }
 
 func MessageSenderBot(message string) (err error) {
-
+	fmt.Println(chatUusername)
+	fmt.Println(telegramBotToken)
 	var (
 		addres string = "https://api.telegram.org/bot" + telegramBotToken
 		text   BotMessage

@@ -3,4 +3,4 @@ ports:
   clientPort: ":8000"
 
 tg:
-    chatusername: "@making_bot_with_golang_bot"
+    chatusername: "@go_tg_bot"

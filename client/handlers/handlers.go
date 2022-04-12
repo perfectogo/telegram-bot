@@ -3,7 +3,7 @@ package handlers
 import (
 	"github.com/perfectogo/telegram-bot/client/services"
 	"github.com/perfectogo/telegram-bot/config"
-	"github.com/perfectogo/telegram-bot/package/logger"
+	"github.com/perfectogo/telegram-bot/pkg/logger"
 )
 
 type handler struct {

@@ -1,6 +1,6 @@
 package service
 
-import "github.com/perfectogo/telegram-bot/package/logger"
+import "github.com/perfectogo/telegram-bot/pkg/logger"
 
 type tgService struct {
 	logger logger.Logger
